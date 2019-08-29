@@ -18,7 +18,8 @@ class List extends React.Component {
     this.state = {
       word:"",
       length: 0,
-      list : []
+      list : [],
+      className: ""
     }
   }
 
@@ -37,15 +38,20 @@ class List extends React.Component {
         // console.log("TYPED: ", event.target.value);
         let currentValue = event.target.value;
         let currentLength = event.target.value.length;
+        let maxChar = 50;
 
-        // input must less than 10 characters
-        if ( currentLength > 50) {
-            alert("keep it short!");
-
+        // input must less than 50 characters
+        if ( currentLength <= maxChar ) {
+            this.setState({length: currentLength});
+            this.setState({word: currentValue});
+        } else {
+            // if length more than 50 user input will not be entered
+            // console.log(currentValue.substring(0, maxChar));
+            // let chopWord = currentValue.substring(0, maxChar);
+            // this.setState({className: "warning"});
+            // this.setState({word: chopWord});
+            alert("too many words");
         }
-
-        this.setState({length: currentLength});
-        this.setState({word: currentValue});
 
     }
 
