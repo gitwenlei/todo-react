@@ -13,7 +13,10 @@ class List extends React.Component {
   }
 
   changeHandler(){
-    debugger;
+    // debugger;
+    console.log("TYPED: ", event.target.value);
+    let currentValue = event.target.value;
+    this.setState({word: currentValue});
   }
 
   render() {
@@ -21,9 +24,14 @@ class List extends React.Component {
 
       console.log("rendering");
       return (
-        <div className="list">
-          <input onChange={()=>{this.changeHandler()}} value={this.state.word}/>
-          <button onClick={()=>{this.addItem()}}>add item</button>
+        <div className="container">
+            <div className="input-group-lg">
+                <h1>to-do-list</h1>
+                <div className="list">
+                    <input onChange={()=>{this.changeHandler()}} value={this.state.word} className="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" />
+                    <button onClick={()=>{this.addItem()}}>add item</button>
+                </div>
+            </div>
         </div>
       );
   }
@@ -33,4 +41,3 @@ ReactDOM.render(
     <List/>,
     document.getElementById('root')
 );
-
