@@ -9,12 +9,18 @@ class List extends React.Component {
   }
 
   addItem(){
-    debugger;
+    // debugger;
+    // push user input into list
+    // console.log("PUSHHHHHH:", this.state.word);
+    let currentList = this.state.list;
+    currentList.push(this.state.word); //push new word into currentList
+    this.setState({list: currentList}); //update state of list key to currentList
+    console.log("inside list liaoz", this.state.list);
   }
 
   changeHandler(){
     // debugger;
-    console.log("TYPED: ", event.target.value);
+    // console.log("TYPED: ", event.target.value);
     let currentValue = event.target.value;
     this.setState({word: currentValue});
   }
